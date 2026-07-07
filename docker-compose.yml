@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:alpine
+    container_name: vaultix
+    environment:
+      POSTGRES_DB: vaultix
+      POSTGRES_USER: vaultix
+      POSTGRES_PASSWORD: vaultix
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
